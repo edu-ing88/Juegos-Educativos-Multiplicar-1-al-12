@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¡Aprende y domina las tablas de multiplicar!</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <!-- Pantalla de inicio con selector de tabla -->
+  <section id="sHome" class="screen active">
+    <div class="hero">✖️🧮➗</div>
+    <h1>¡APRENDE Y DOMINA LAS TABLAS DE MULTIPLICAR!</h1>
+    <p class="sub">Practica, aprende y demuestra cuánto sabes.</p>
+    <p class="pick">Elige la tabla que quieres practicar:</p>
+    <div id="grid" class="grid" role="group" aria-label="Tablas de multiplicar"></div>
+    <p id="warn" aria-live="polite"></p>
+    <button class="btn big" id="bStart">INICIAR JUEGO</button>
+  </section>
+
+  <!-- Cuenta regresiva -->
+  <section id="sCount" class="screen"><div id="cd"></div></section>
+
+  <!-- Juego -->
+  <section id="sGame" class="screen">
+    <div class="stats">
+      <div>📚 Tabla del <b id="tT">0</b></div>
+      <div>Pregunta <b id="tQ">1</b> de 12</div>
+      <div>✅ <b id="tOk">0</b></div>
+      <div>❌ <b id="tBad">0</b></div>
+      <div>⭐ <b id="tScore">0</b> pts</div>
+      <div>🎯 <b id="tPct">0</b>%</div>
+    </div>
+    <div class="bar" role="progressbar" aria-label="Progreso"><i id="bar"></i></div>
+    <div class="op" id="op">
+      <span id="nA">0</span><span>×</span><span id="nB">0</span><span>=</span>
+      <input id="ans" type="text" inputmode="numeric" autocomplete="off" maxlength="3" aria-label="Tu respuesta" placeholder="?">
+    </div>
+    <div id="fb" aria-live="polite"></div>
+    <button class="btn big" id="bSend">ENVIAR RESPUESTA</button>
+    <div class="ctrl">
+      <button class="btn orange" id="bReset">🔄 REINICIAR</button>
+      <button class="btn red" id="bExit">🚪 SALIR</button>
+    </div>
+  </section>
+</main>
+
+<div id="rain" aria-hidden="true"></div>
+
+<dialog id="dExit">
+  <h2>¿Estás seguro de que deseas salir del juego?</h2>
+  <button class="btn red" id="exitYes">Sí, salir</button>
+  <button class="btn" id="exitNo">Continuar jugando</button>
+</dialog>
+<dialog id="dReset">
+  <h2>¿Deseas reiniciar la partida?</h2>
+  <button class="btn orange" id="resetYes">Sí, reiniciar</button>
+  <button class="btn" id="resetNo">Cancelar</button>
+</dialog>
+<dialog id="dRes"></dialog>
+<script src="script.js"></script>
+</body>
+</html>
